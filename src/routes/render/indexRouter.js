@@ -3,7 +3,8 @@ import express from 'express';
 const router = express.Router();
 
 router.get('/', (req, res) => {
-  res.json({ hello: 'world' });
+  const initState = {};
+  res.render('IndexPage', initState);
 });
 
 export default router;
