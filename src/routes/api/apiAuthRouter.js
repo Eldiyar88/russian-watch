@@ -9,7 +9,7 @@ router.post('/login', async (req, res) => {
   if (!(inputUserName && inputPassword)) {
     return res.status(400).json({ message: 'All fields are required' });
   }
-
+  console.log(req.body);
   const user = await User.findOne({ where: { userName: inputUserName } });
   if (!user) return res.status(403).json({ message: 'No user found' });
 
