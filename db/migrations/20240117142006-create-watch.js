@@ -20,16 +20,7 @@ module.exports = {
       type: {
         type: Sequelize.STRING,
       },
-      userId: {
 
-        type: Sequelize.INTEGER,
-        references: {
-          model: 'Users',
-          key: 'id',
-        },
-        onDelete: 'CASCADE',
-
-      },
       image: {
         type: Sequelize.STRING,
       },
