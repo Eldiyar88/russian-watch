@@ -18,8 +18,8 @@ export default function Navbar({ user }) {
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav">
             <li className="nav-item" style={{ color: 'white' }}>
-              Hello,
-              {user ? user.username : 'stranger'}
+              Привет,
+              {user ? user.username : 'гость'}
             </li>
             <li className="nav-item">
               <a className="nav-link active" aria-current="page" href="/">

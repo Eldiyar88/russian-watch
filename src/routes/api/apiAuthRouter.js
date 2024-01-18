@@ -1,6 +1,6 @@
 import { Router } from 'express';
 import bcrypt from 'bcrypt';
-import { User } from '../../../db/models';
+// import { User } from '../../../db/models';
 import generateTokens from '../../utils/generateTokens';
 import cookieConfig from '../../config/cookiesConfig';
 
