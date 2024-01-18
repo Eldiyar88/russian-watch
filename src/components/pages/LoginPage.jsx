@@ -20,10 +20,10 @@ export default function LoginPage() {
     <form onSubmit={submitHandler}>
       <div className="mb-3">
         <label htmlFor="exampleInputEmail1" className="form-label">
-          Email address
+          Name
           <input
-            name="email"
-            type="email"
+            name="inputUserName"
+            type="name"
             className="form-control"
             id="exampleInputEmail1"
             aria-describedby="emailHelp"
@@ -34,7 +34,7 @@ export default function LoginPage() {
         <label htmlFor="exampleInputPassword1" className="form-label">
           Password
           <input
-            name="password"
+            name="inputPassword"
             type="password"
             className="form-control"
             id="exampleInputPassword1"
