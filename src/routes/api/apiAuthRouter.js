@@ -6,31 +6,6 @@ import cookieConfig from '../../config/cookiesConfig';
 
 const router = Router();
 
-router.post('/signup', async (req, res) => {
-  const { username, email, password } = req.body;
-
-  if (!(username && email && password)) {
-    return res.status(400).json({ message: 'All fields are required' });
-  }
-
-  const [user, created] = await User.findOrCreate({
-    where: { email },
-    defaults: { username, password: await bcrypt.hash(password, 10) },
-  });
-
-  if (!created) return res.status(403).json({ message: 'User already exists' });
-
-  const plainUser = user.get();
-  delete plainUser.password;
-
-  const { access, refresh } = generateTokens({ user: plainUser });
-
-  res
-    .cookie('accessToken', access, cookieConfig.access)
-    .cookie('refreshToken', refresh, cookieConfig.refresh)
-    .sendStatus(200);
-});
-
 router.post('/login', async (req, res) => {
   const { email, password } = req.body;
 
