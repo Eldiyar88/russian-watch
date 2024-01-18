@@ -8,6 +8,7 @@ import indexRouter from './routes/render/indexRouter';
 import apiAuthRouter from './routes/api/apiAuthRouter';
 import resLocals from './middlewares/resLocals';
 import authRouter from './routes/render/authRouter';
+import ordersRouter from './routes/render/ordersRouter';
 
 const PORT = process.env.PORT || 3000;
 const app = express();
@@ -25,6 +26,7 @@ app.use(resLocals);
 
 app.use('/', indexRouter);
 app.use('/auth', authRouter);
+app.use('/orders', ordersRouter);
 app.use('/api/auth', apiAuthRouter);
 
 app.listen(PORT, () => console.log(`App has started on port ${PORT}`));
