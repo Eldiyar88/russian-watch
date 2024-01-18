@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 
-export default function IndexPage() {
+export default function IndexPage({user}) {
   const submitHandler = async (e) => {
     e.preventDefault();
 

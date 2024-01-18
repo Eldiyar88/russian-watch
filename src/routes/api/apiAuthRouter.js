@@ -1,22 +1,46 @@
 import { Router } from 'express';
+import bcrypt from 'bcrypt';
 import { User } from '../../../db/models';
+import generateTokens from '../../utils/generateTokens';
+import cookieConfig from '../../config/cookiesConfig';
 
 const router = Router();
 
 router.post('/login', async (req, res) => {
-  const { inputUserName, inputPassword } = req.body;
+  const { userName, password } = req.body;
 
-  if (!(inputUserName && inputPassword)) {
+  if (!(userName && password)) {
     return res.status(400).json({ message: 'All fields are required' });
   }
-  console.log('1 ------> ', JSON.stringify(req.body));
 
-  const user = await User.findOne({ where: { userName: inputUserName } });
-  console.log('2 ------> ', JSON.stringify(user));
+  const user = await User.findOne({ where: { userName } });
 
   if (!user) return res.status(403).json({ message: 'No user found' });
+  let correctPass = false;
+  // await bcrypt.compare(password, user.password);
+  if (password === user.password) {
+    correctPass = true;
+  }
+  console.log('password -> ', password, 'user.password ---> ', user.password);
+  console.log('-------->', correctPass);
 
-  if (inputPassword === user.password) return res.status(200).json({ message: 'ok' });
+  if (!correctPass) {
+    return res.status(401).json({ message: 'Incorrect password' });
+  }
+
+  const plainUser = user.get();
+  delete plainUser.password;
+
+  const { access, refresh } = generateTokens({ user: plainUser });
+
+  res
+    .cookie('accessToken', access, cookieConfig.access)
+    .cookie('refreshToken', refresh, cookieConfig.refresh)
+    .sendStatus(200);
+});
+
+router.get('/logout', (req, res) => {
+  res.clearCookie('accessToken').clearCookie('refreshToken').sendStatus(200);
 });
 
 export default router;

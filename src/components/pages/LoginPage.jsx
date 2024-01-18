@@ -22,7 +22,7 @@ export default function LoginPage() {
         <label htmlFor="exampleInputEmail1" className="form-label">
           Name
           <input
-            name="inputUserName"
+            name="userName"
             type="name"
             className="form-control"
             id="exampleInputEmail1"
@@ -34,7 +34,7 @@ export default function LoginPage() {
         <label htmlFor="exampleInputPassword1" className="form-label">
           Password
           <input
-            name="inputPassword"
+            name="password"
             type="password"
             className="form-control"
             id="exampleInputPassword1"
