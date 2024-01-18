@@ -6,10 +6,8 @@ export default function IndexPage() {
     e.preventDefault();
 
     try {
-      const response = await axios.post(
-        '/api/auth/signup',
-        Object.fromEntries(new FormData(e.target)),
-      );
+      const response = await axios.post('/orders', Object.fromEntries(new FormData(e.target)));
+      console.log(response);
       if (response.status === 200) window.location = '/';
     } catch (error) {
       alert(error.response.data.message);
