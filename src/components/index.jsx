@@ -3,7 +3,6 @@ import ReactDOMClient from 'react-dom/client';
 import App from './App';
 import components from './components';
 
-
 const Component = components[window.initState.componentName];
 
 ReactDOMClient.hydrateRoot(
