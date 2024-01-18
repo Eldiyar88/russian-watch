@@ -10,7 +10,7 @@ export default function LoginPage() {
         '/api/auth/login',
         Object.fromEntries(new FormData(e.target)),
       );
-      if (response.status === 200) window.location = '/dolphins';
+      if (response.status === 200) window.location = '/';
     } catch (error) {
       alert(error.response.data.message);
     }

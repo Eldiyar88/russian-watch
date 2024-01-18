@@ -1,6 +1,21 @@
 import React from 'react';
+import axios from 'axios';
 
 export default function IndexPage() {
+  const submitHandler = async (e) => {
+    e.preventDefault();
+
+    try {
+      const response = await axios.post(
+        '/api/auth/signup',
+        Object.fromEntries(new FormData(e.target)),
+      );
+      if (response.status === 200) window.location = '/';
+    } catch (error) {
+      alert(error.response.data.message);
+    }
+  };
+
   return (
     <div className="card mb-3 me-3" style={{ width: '18rem' }}>
       <img
@@ -8,7 +23,7 @@ export default function IndexPage() {
         alt="..."
         src="https://www.100suvenirov.ru/data/Image/catalog/436367-chasy-naruchnye-muzhskie_b.jpg"
       />
-      <form>
+      <form onSubmit={submitHandler}>
         <input
           name="name"
           type="text"

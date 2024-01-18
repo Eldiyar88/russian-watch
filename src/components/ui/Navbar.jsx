@@ -27,18 +27,11 @@ export default function Navbar({ user }) {
               </a>
             </li>
             {!user ? (
-              <>
-                <li className="nav-item">
-                  <a className="nav-link" href="/auth/signup">
-                    Регистрация
-                  </a>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link" href="/auth/login">
-                    Войти
-                  </a>
-                </li>
-              </>
+              <li className="nav-item">
+                <a className="nav-link" href="/auth/login">
+                  Войти
+                </a>
+              </li>
             ) : (
               <>
                 <li className="nav-item">
