@@ -43,12 +43,12 @@ export default function Navbar({ user }) {
                   <a className="nav-link" onClick={logoutHandler}>
                     Выйти
                   </a>
-                  <li className="nav-item">
-                    {user.userName === 'admin'}
-                    <a className="nav-link active" aria-current="page" href="/orders">
-                      Заказы
-                    </a>
-                  </li>
+                </li>
+                <li className="nav-item">
+                  {user.userName === 'admin'}
+                  <a className="nav-link active" aria-current="page" href="/orders">
+                    Заказы
+                  </a>
                 </li>
               </>
             )}
