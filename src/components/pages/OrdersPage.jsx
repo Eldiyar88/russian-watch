@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function DolphinsPage({ orders }) {
+export default function OrdersPage({ orders }) {
   return (
     <div className="container">
       <h1>Заказы</h1>
