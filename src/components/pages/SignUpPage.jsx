@@ -7,7 +7,7 @@ export default function SignUpPage() {
 
     try {
       const response = await axios.post('/api/auth/signup', Object.fromEntries(new FormData(e.target)));
-      if (response.status === 200) window.location = '/dolphins';
+      if (response.status === 200) window.location = '/';
     } catch (error) {
       alert(error.response.data.message);
     }
