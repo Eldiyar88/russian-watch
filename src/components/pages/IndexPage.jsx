@@ -45,7 +45,7 @@ export default function IndexPage() {
           id="exampleFormControlInput1"
           placeholder="ссылка на экскиз"
         />
-        <button className="btn btn-danger" type="button">
+        <button className="btn btn-danger" type="submit">
           Оставить заявку
         </button>
       </form>
