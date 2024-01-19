@@ -74,7 +74,7 @@ export default function IndexPage({ user }) {
               <TextField
                 fullWidth
                 label="Ссылка на эскиз"
-                name="picture"
+                name="photoURL"
                 variant="outlined"
                 placeholder="Вставьте ссылку на эскиз"
                 style={{ fontFamily: 'ваш_желаемый_шрифт' }}
