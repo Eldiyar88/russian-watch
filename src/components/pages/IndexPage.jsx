@@ -34,8 +34,9 @@ export default function IndexPage({ user }) {
     e.preventDefault();
 
     try {
-      const response = await axios.post('/orders', Object.fromEntries(new FormData(e.target)));
-      console.log(response);
+      const response = await axios.post('/orders/new', Object.fromEntries(new FormData(e.target)));
+      console.log(response, '1111111111111111111111111111111111111111');
+
       if (response.status === 200) window.location = '/';
     } catch (error) {
       alert(error.response.data.message);
@@ -72,7 +73,7 @@ export default function IndexPage({ user }) {
               <TextField
                 fullWidth
                 label="Ссылка на эскиз"
-                name="picture"
+                name="photoURL"
                 variant="outlined"
                 placeholder="Вставьте ссылку на эскиз"
                 style={{ fontFamily: 'ваш_желаемый_шрифт' }}
