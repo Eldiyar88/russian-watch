@@ -1,5 +1,9 @@
 import axios from 'axios';
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  faHome, faSignInAlt, faClock, faShoppingBasket,
+} from '@fortawesome/free-solid-svg-icons';
 
 export default function Navbar({ user }) {
   const logoutHandler = async (e) => {
@@ -12,8 +16,9 @@ export default function Navbar({ user }) {
       alert(error.response.data.message);
     }
   };
+
   return (
-    <nav className="navbar navbar-expand-lg bg-body-tertiary navbar-dark bg-dark">
+    <nav className="navbar navbar-expand-lg navbar-grey bg-grey opacity-25">
       <div className="container-fluid">
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav">
@@ -23,33 +28,44 @@ export default function Navbar({ user }) {
             </li>
             <li className="nav-item">
               <a className="nav-link active" aria-current="page" href="/">
-                Домой
+                <FontAwesomeIcon icon={faHome} />
+                {' '}
+
               </a>
             </li>
             {!user ? (
               <li className="nav-item">
                 <a className="nav-link" href="/auth/login">
-                  Войти
+                  <FontAwesomeIcon icon={faSignInAlt} />
+                  {' '}
+
                 </a>
               </li>
             ) : (
               <>
                 <li className="nav-item">
                   <a className="nav-link" href="/watches">
+                    <FontAwesomeIcon icon={faClock} />
+                    {' '}
                     Часы
                   </a>
                 </li>
                 <li className="nav-item">
                   <a className="nav-link" onClick={logoutHandler}>
+                    <FontAwesomeIcon icon={faSignInAlt} />
+                    {' '}
                     Выйти
                   </a>
                 </li>
-                <li className="nav-item">
-                  {user.userName === 'admin'}
-                  <a className="nav-link active" aria-current="page" href="/orders">
-                    Заказы
-                  </a>
-                </li>
+                {user.userName === 'admin' && (
+                  <li className="nav-item">
+                    <a className="nav-link active" aria-current="page" href="/orders">
+                      <FontAwesomeIcon icon={faShoppingBasket} />
+                      {' '}
+                      Заказы
+                    </a>
+                  </li>
+                )}
               </>
             )}
           </ul>
