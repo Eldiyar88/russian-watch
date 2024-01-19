@@ -1,10 +1,14 @@
 import React from 'react';
+import OneOrder from './OneOrder';
 
 export default function OrdersPage({ orders }) {
   return (
-    <div className="container">
-      <h1>Заказы</h1>
-      <div className="row mt-3">{orders.map((el) => el)}</div>
+    <div className="d-flex flex-column justify-content-center">
+      <div className="row d-flex justify-content-center">
+        {orders?.map((el) => (
+          <OneOrder key={el.id} order={el} />
+        ))}
+      </div>
     </div>
   );
 }
