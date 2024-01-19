@@ -1,7 +1,7 @@
 import React from 'react';
 
 export default function WatchCard({ watches }) {
-  console.log('---->', watches);
+  // console.log('---->', watches);
   return (
     <div className="card mb-3 me-3" style={{ width: '18rem' }}>
       <div className="card-body">
