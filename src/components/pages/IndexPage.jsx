@@ -5,13 +5,14 @@ import {
 } from '@mui/material';
 import axios from 'axios';
 
-export default function IndexPage({user}) {
+export default function IndexPage() {
   const submitHandler = async (e) => {
     e.preventDefault();
-
+    const response = await axios.post('/', Object.fromEntries(new FormData(e.target)));
+  
     try {
-      const response = await axios.post('/orders', Object.fromEntries(new FormData(e.target)));
-      console.log(response);
+      // const response = await axios.post('/orders', Object.fromEntries(new FormData(e.target)));
+      // console.log(response);
       if (response.status === 200) window.location = '/';
     } catch (error) {
       alert(error.response.data.message);
