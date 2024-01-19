@@ -17,19 +17,19 @@ const backgroundStyle = {
 
 const formStyle = {
   width: '100%',
-  maxWidth: '400px', // Опционально: ограничивает максимальную ширину формы
-  backgroundColor: 'rgba(255, 255, 255, 0.7)', // Прозрачный белый цвет
+  maxWidth: '400px',
+  backgroundColor: 'rgba(255, 255, 255, 0.7)',
   padding: '1rem',
-  borderRadius: '10px', // Опционально: добавляет закругленные углы формы
+  borderRadius: '10px',
 };
 
 const inputStyle = {
-  marginBottom: '1rem', // Отступ между элементами формы
-  backgroundColor: 'rgba(255, 255, 255, 0.5)', // Прозрачный белый цвет
-  borderRadius: '5px', // Опционально: добавляет закругленные углы текстовых полей
+  marginBottom: '1rem',
+  backgroundColor: 'rgba(255, 255, 255, 0.5)',
+  borderRadius: '5px',
 };
 
-export default function IndexPage() {
+export default function IndexPage({ user }) {
   const submitHandler = async (e) => {
     e.preventDefault();
     // const response = await axios.post('/', Object.fromEntries(new FormData(e.target)));
