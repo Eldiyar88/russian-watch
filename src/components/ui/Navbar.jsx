@@ -24,7 +24,7 @@ export default function Navbar({ user }) {
           <ul className="navbar-nav">
             <li className="nav-item" style={{ color: 'white' }}>
               Привет,
-              {user ? user.userName : 'гость'}
+              {user ? user.username : 'гость'}
             </li>
             <li className="nav-item">
               <a className="nav-link active" aria-current="page" href="/">
@@ -56,6 +56,15 @@ export default function Navbar({ user }) {
                     {' '}
                     Выйти
                   </a>
+
+                  <li className="nav-item">
+                    {user.userName === 'admin'}
+                    <a className="nav-link active" aria-current="page" href="/orders">
+                      Заказы
+                    </a>
+                  </li>
+                </li>
+
                 </li>
                 {user.userName === 'admin' && (
                   <li className="nav-item">
@@ -66,6 +75,7 @@ export default function Navbar({ user }) {
                     </a>
                   </li>
                 )}
+
               </>
             )}
           </ul>
