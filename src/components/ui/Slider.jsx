@@ -8,6 +8,7 @@ function SimpleSlider({ images, additionalSettings }) {
     maxHeight: '100%',
     maxWidth: '100%',
     overflow: 'hidden',
+    position: 'relative',
   };
 
   return (
@@ -15,7 +16,7 @@ function SimpleSlider({ images, additionalSettings }) {
       <Carousel {...additionalSettings}>
         {images.map((image, index) => (
           <Carousel.Item key={index}>
-            <img className="d-block w-100 img-fluid" src={image} alt={`Slide ${index + 1}`} />
+            <img className="d-block w-100 " src={image} alt={`Slide ${index + 1}`} />
           </Carousel.Item>
         ))}
       </Carousel>

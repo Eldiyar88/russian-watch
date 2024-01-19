@@ -15,7 +15,7 @@ export default function App({ children, user }) {
   };
 
   return (
-    <div className="Conntainer" style={{ backgroundImage: "url ('https://img.freepik.com/free-photo/watercolor-texture-background-light-gray-wallpaper_53876-104729.jpg?w=1800&t=st=1705586268~exp=1705586868~hmac=96ab239dbee02ddfd91e1c537bc76d1015888f8da1349ef651c8fce2c54171f1')" }}>
+    <div className="Conntainer">
       <Navbar user={user} />
       <Greeting />
       <SimpleSlider images={images} additionalSettings={additionalSettings} />
