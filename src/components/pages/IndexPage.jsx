@@ -32,11 +32,12 @@ const inputStyle = {
 export default function IndexPage() {
   const submitHandler = async (e) => {
     e.preventDefault();
-    const response = await axios.post('/', Object.fromEntries(new FormData(e.target)));
+    // const response = await axios.post('/', Object.fromEntries(new FormData(e.target)));
 
     try {
-      // const response = await axios.post('/orders', Object.fromEntries(new FormData(e.target)));
-      // console.log(response);
+      const response = await axios.post('/orders/new', Object.fromEntries(new FormData(e.target)));
+      console.log(response, '1111111111111111111111111111111111111111');
+
       if (response.status === 200) window.location = '/';
     } catch (error) {
       alert(error.response.data.message);
