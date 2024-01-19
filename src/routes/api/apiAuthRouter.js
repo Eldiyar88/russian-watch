@@ -22,6 +22,7 @@ router.post('/login', async (req, res) => {
     correctPass = true;
   }
 
+
   if (!correctPass) {
     return res.status(401).json({ message: 'Incorrect password' });
   }

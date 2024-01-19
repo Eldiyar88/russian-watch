@@ -30,13 +30,17 @@ const inputStyle = {
   borderRadius: '5px',
 };
 
+
 export default function IndexPage({ watches }) {
+
   const submitHandler = async (e) => {
     e.preventDefault();
     // const response = await axios.post('/', Object.fromEntries(new FormData(e.target)));
 
     try {
       const response = await axios.post('/orders/new', Object.fromEntries(new FormData(e.target)));
+
+
       if (response.status === 200) window.location = '/';
     } catch (error) {
       alert(error.response.data.message);
@@ -44,6 +48,7 @@ export default function IndexPage({ watches }) {
   };
 
   return (
+
     <>
       <div className="row d-flex justify-content-center">
         {watches?.map((el) => <WatchCard key={el.id} watches={el} />)}
@@ -91,5 +96,49 @@ export default function IndexPage({ watches }) {
         </Card>
       </div>
     </>
+
+    <div style={backgroundStyle}>
+      <Card style={formStyle}>
+        <CardContent>
+          <form onSubmit={submitHandler}>
+            <div style={inputStyle}>
+              <TextField
+                fullWidth
+                label="Имя"
+                name="name"
+                variant="outlined"
+                placeholder="Введите ваше имя"
+                style={{ fontFamily: 'ваш_желаемый_шрифт' }}
+              />
+            </div>
+            <div style={inputStyle}>
+              <TextField
+                fullWidth
+                label="Электронная почта"
+                name="email"
+                type="email"
+                variant="outlined"
+                placeholder="Введите вашу почту"
+                style={{ fontFamily: 'ваш_желаемый_шрифт' }}
+              />
+            </div>
+            <div style={inputStyle}>
+              <TextField
+                fullWidth
+                label="Ссылка на эскиз"
+                name="photoURL"
+                variant="outlined"
+                placeholder="Вставьте ссылку на эскиз"
+                style={{ fontFamily: 'ваш_желаемый_шрифт' }}
+              />
+            </div>
+            <Button variant="contained" color="secondary" type="submit" style={{ fontFamily: 'ваш_желаемый_шрифт' }}>
+              Оставить заявку
+            </Button>
+          </form>
+        </CardContent>
+      </Card>
+    </div>
+
   );
 }

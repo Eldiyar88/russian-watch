@@ -1,6 +1,7 @@
 import React from 'react';
 import Navbar from './ui/Navbar';
 import SimpleSlider from './ui/Slider';
+import Greeting from './ui/Greetings';
 
 export default function App({ children, user }) {
   const images = [
@@ -16,6 +17,7 @@ export default function App({ children, user }) {
   return (
     <div className="Conntainer">
       <Navbar user={user} />
+      <Greeting />
       <SimpleSlider images={images} additionalSettings={additionalSettings} />
 
       {children}
