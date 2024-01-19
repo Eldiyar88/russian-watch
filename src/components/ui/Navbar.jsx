@@ -29,16 +29,14 @@ export default function Navbar({ user }) {
             <li className="nav-item">
               <a className="nav-link active" aria-current="page" href="/">
                 <FontAwesomeIcon icon={faHome} />
-                {' '}
-
+                Главная
               </a>
             </li>
             {!user ? (
               <li className="nav-item">
                 <a className="nav-link" href="/auth/login">
                   <FontAwesomeIcon icon={faSignInAlt} />
-                  {' '}
-
+                  Войти
                 </a>
               </li>
             ) : (
@@ -46,48 +44,23 @@ export default function Navbar({ user }) {
                 <li className="nav-item">
                   <a className="nav-link" href="/watches">
                     <FontAwesomeIcon icon={faClock} />
-                    {' '}
                     Часы
                   </a>
                 </li>
                 <li className="nav-item">
                   <a className="nav-link" onClick={logoutHandler}>
                     <FontAwesomeIcon icon={faSignInAlt} />
-                    {' '}
                     Выйти
                   </a>
-
                 </li>
-                {user.userName === 'admin' && (
-                  <li className="nav-item">
-
-
-                  {/* <li className="nav-item">
-                    {user.userName === 'admin'}
-
-                    <a className="nav-link active" aria-current="page" href="/orders">
-                      <FontAwesomeIcon icon={faShoppingBasket} />
-                      {' '}
-                      Заказы
-                    </a>
-
-                  </li>
-                )}
-
-                  </li> */}
-                </li>
-
                 {user.userName === 'admin' && (
                   <li className="nav-item">
                     <a className="nav-link active" aria-current="page" href="/orders">
                       <FontAwesomeIcon icon={faShoppingBasket} />
-                      {' '}
                       Заказы
                     </a>
                   </li>
                 )}
-
-
               </>
             )}
           </ul>
