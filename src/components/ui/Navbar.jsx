@@ -55,15 +55,14 @@ export default function Navbar({ user }) {
                     Выйти
                   </a>
 
-                  <li className="nav-item">
+                  {/* <li className="nav-item">
                     {user.userName === 'admin'}
                     <a className="nav-link active" aria-current="page" href="/orders">
                       Заказы
                     </a>
-                  </li>
+                  </li> */}
                 </li>
 
-                </li>
                 {user.userName === 'admin' && (
                   <li className="nav-item">
                     <a className="nav-link active" aria-current="page" href="/orders">
