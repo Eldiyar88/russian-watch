@@ -30,7 +30,6 @@ export default function Navbar({ user }) {
               <a className="nav-link active" aria-current="page" href="/">
                 <FontAwesomeIcon icon={faHome} />
                 {' '}
-
               </a>
             </li>
             {!user ? (
@@ -38,7 +37,6 @@ export default function Navbar({ user }) {
                 <a className="nav-link" href="/auth/login">
                   <FontAwesomeIcon icon={faSignInAlt} />
                   {' '}
-
                 </a>
               </li>
             ) : (
