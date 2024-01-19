@@ -33,7 +33,7 @@ export default function IndexPage() {
   const submitHandler = async (e) => {
     e.preventDefault();
     const response = await axios.post('/', Object.fromEntries(new FormData(e.target)));
-  
+
     try {
       // const response = await axios.post('/orders', Object.fromEntries(new FormData(e.target)));
       // console.log(response);
